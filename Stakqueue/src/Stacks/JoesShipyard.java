@@ -66,7 +66,7 @@ public class JoesShipyard extends javax.swing.JFrame {
         lblcontain1 = new javax.swing.JLabel();
         lblcontain0 = new javax.swing.JLabel();
         btnbook = new javax.swing.JButton();
-        txname = new javax.swing.JTextField();
+        txtname = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         bookinglist = new javax.swing.JList<>();
@@ -171,6 +171,11 @@ public class JoesShipyard extends javax.swing.JFrame {
         );
 
         btnbook.setText("Book it");
+        btnbook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbookActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -206,7 +211,7 @@ public class JoesShipyard extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(btnbook)
                         .addGap(32, 32, 32)
-                        .addComponent(txname, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,12 +243,19 @@ public class JoesShipyard extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnbook)
-                    .addComponent(txname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnbookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbookActionPerformed
+        yard.pop();
+        book(txtname.getText());
+        containers[yard.size()].setVisible(false);
+        
+    }//GEN-LAST:event_btnbookActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,6 +312,6 @@ public class JoesShipyard extends javax.swing.JFrame {
     private javax.swing.JLabel lblcontain7;
     private javax.swing.JLabel lblcontain8;
     private javax.swing.JLabel lblcontain9;
-    private javax.swing.JTextField txname;
+    private javax.swing.JTextField txtname;
     // End of variables declaration//GEN-END:variables
 }
