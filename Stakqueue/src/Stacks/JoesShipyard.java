@@ -198,6 +198,11 @@ public class JoesShipyard extends javax.swing.JFrame {
         );
 
         jButton1.setText("Return Selected Container");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Containers signed out");
 
@@ -251,11 +256,24 @@ public class JoesShipyard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbookActionPerformed
-        yard.pop();
-        book(txtname.getText());
+        Container c = yard.pop();
+        c.book(txtname.getText());
+        out.add(c);
+        outdata.addElement(c);
         containers[yard.size()].setVisible(false);
-        
+        txtname.setText("");
+        txtname.requestFocus();
     }//GEN-LAST:event_btnbookActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int index = bookinglist.getSelectedIndex();
+        Container c = out.remove(index);
+        outdata.remove(index);
+        c.unbook();
+        yard.push(c);
+        containers[yard.size()-1].setVisible(true);
+        containers[yard.size()-1].setText(c.toString()); 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
