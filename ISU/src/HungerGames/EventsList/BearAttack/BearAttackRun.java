@@ -5,7 +5,7 @@
  */
 package HungerGames.EventsList.BearAttack;
 
-import HungerGames.Event;
+import HungerGames.EventsList.Event;
 import HungerGames.Tribute;
 
 /**

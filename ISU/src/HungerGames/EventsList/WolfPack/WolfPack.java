@@ -3,30 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package HungerGames.EventsList;
+package HungerGames.EventsList.WolfPack;
 
+import HungerGames.EventsList.Event;
 import HungerGames.Tribute;
 
 /**
  *
  * @author chri8160
  */
-public class FoodCook extends Event{
+public class WolfPack extends Event{
 
-    public FoodCook(Tribute t) {
+    public WolfPack(Tribute t) {
         super(t);
     }
 
     @Override
     protected void Reward(Tribute t) {
-        System.out.println("You cook your meal over a flame");
-        t.hunger-=50;
+        System.out.println("You light a fire, and the wolves don't bug you anymore");
     }
 
     @Override
     protected void Punishment(Tribute t) {
-        System.out.println("You eat the food raw");
-        t.hunger-=20;
+        System.out.println("You notice that you're surrounded by a pack of wolves");
+        WolfPackClimb c = new WolfPackClimb(t);
     }
 
     @Override

@@ -3,30 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package HungerGames.EventsList;
+package HungerGames.EventsList.ForestFire;
 
+import HungerGames.EventsList.Event;
 import HungerGames.Tribute;
 
 /**
  *
  * @author chri8160
  */
-public class FoodCook extends Event{
+public class ForestFire extends Event{
 
-    public FoodCook(Tribute t) {
+    public ForestFire(Tribute t) {
         super(t);
     }
 
     @Override
     protected void Reward(Tribute t) {
-        System.out.println("You cook your meal over a flame");
-        t.hunger-=50;
+        System.out.println("You create a controlled burn, stopping the fire before it reaches you");
     }
 
     @Override
     protected void Punishment(Tribute t) {
-        System.out.println("You eat the food raw");
-        t.hunger-=20;
+        System.out.println("The fire starts to close in");
+        ForestFireRunning r = new ForestFireRunning(t);
     }
 
     @Override

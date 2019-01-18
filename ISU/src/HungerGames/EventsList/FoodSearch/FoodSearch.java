@@ -5,7 +5,7 @@
  */
 package HungerGames.EventsList.FoodSearch;
 
-import HungerGames.Event;
+import HungerGames.EventsList.Event;
 import HungerGames.EventsList.FoodCook;
 import HungerGames.Tribute;
 

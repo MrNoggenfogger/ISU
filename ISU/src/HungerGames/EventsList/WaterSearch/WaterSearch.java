@@ -3,35 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package HungerGames.EventsList;
+package HungerGames.EventsList.WaterSearch;
 
+import HungerGames.EventsList.Event;
 import HungerGames.Tribute;
 
 /**
  *
  * @author chri8160
  */
-public class FoodCook extends Event{
+public class WaterSearch extends Event{
 
-    public FoodCook(Tribute t) {
+    public WaterSearch(Tribute t) {
         super(t);
     }
 
     @Override
     protected void Reward(Tribute t) {
-        System.out.println("You cook your meal over a flame");
-        t.hunger-=50;
+        System.out.println("You manage to stumble upon water naturally");
     }
 
     @Override
     protected void Punishment(Tribute t) {
-        System.out.println("You eat the food raw");
-        t.hunger-=20;
+        System.out.println("You are starting to get thirsty, and decide to look for a source of water");
+        WaterSearchClimb c = new WaterSearchClimb(t);
     }
 
     @Override
     protected void setRequirement() {
-        requirement = fire;
+        requirement = running;
     }
     
 }

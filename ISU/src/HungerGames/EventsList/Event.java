@@ -1,4 +1,6 @@
-package HungerGames;
+package HungerGames.EventsList;
+
+import HungerGames.Tribute;
 
 
 

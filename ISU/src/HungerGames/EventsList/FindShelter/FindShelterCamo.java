@@ -5,7 +5,8 @@
  */
 package HungerGames.EventsList.FindShelter;
 
-import HungerGames.Event;
+import HungerGames.EventsList.Event;
+import HungerGames.EventsList.Sleep;
 import HungerGames.Tribute;
 
 /**
@@ -21,6 +22,7 @@ public class FindShelterCamo extends Event{
     @Override
     protected void Reward(Tribute t) {
         System.out.println("You manage to camouflage yourself during the night, hidden from anyone wandering about");
+        Sleep s = new Sleep(t);
     }
 
     @Override

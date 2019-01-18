@@ -3,36 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package HungerGames.EventsList.FindShelter;
+package HungerGames.EventsList.WolfPack;
 
 import HungerGames.EventsList.Event;
-import HungerGames.EventsList.Sleep;
 import HungerGames.Tribute;
 
 /**
  *
  * @author chri8160
  */
-public class FindShelter extends Event{
+public class WolfPackClimb extends Event{
 
-    public FindShelter(Tribute t) {
+    public WolfPackClimb(Tribute t) {
         super(t);
     }
 
     @Override
     protected void Reward(Tribute t) {
-        System.out.println("You manage to build a small shelter, that allows you to be safe for the night");
-        Sleep s = new Sleep(t);
+        System.out.println("You climb a nearby tree, safe from the wolves");
     }
 
     @Override
     protected void Punishment(Tribute t) {
-        FindShelterCamo c = new FindShelterCamo(t);
+        System.out.println("They start the attack");
+        t.health-=5;
+        WolfPackCombat c = new WolfPackCombat(t);
     }
 
     @Override
     protected void setRequirement() {
-    requirement = building;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+  
 }

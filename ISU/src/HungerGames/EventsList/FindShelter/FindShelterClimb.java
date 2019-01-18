@@ -5,7 +5,9 @@
  */
 package HungerGames.EventsList.FindShelter;
 
-import HungerGames.Event;
+import HungerGames.EventsList.Event;
+import HungerGames.EventsList.RandomEvent;
+import HungerGames.EventsList.Sleep;
 import HungerGames.Tribute;
 
 /**
@@ -21,12 +23,13 @@ public class FindShelterClimb extends Event{
     @Override
     protected void Reward(Tribute t) {
         System.out.println("You climb into the trees for the night, safe from any one wandering around");
+        Sleep s = new Sleep(t);
     }
 
     @Override
     protected void Punishment(Tribute t) {
         System.out.println("You're unable to find any shelter for the night");
-        System.out.print("During the night ");
+        System.out.print("You are unable to sleep, and during the night ");
         RandomEvent r = new RandomEvent(t);
     }
 

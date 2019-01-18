@@ -5,10 +5,18 @@
  */
 package HungerGames.EventsList;
 
+import HungerGames.Tribute;
+import java.util.Random;
+
 /**
  *
  * @author chri8160
  */
-public class ForestFire {
+public class RandomEvent{
     
+    
+    public RandomEvent(Tribute t){
+        int num=(int)(Math.random()*2)+1;
+        
+    }
 }
