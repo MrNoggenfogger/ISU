@@ -12,7 +12,7 @@ import HungerGames.Tribute;
  * @author chri8160
  */
 public class FoodCook extends Event{
-
+    
     public FoodCook(Tribute t) {
         super(t);
     }

@@ -5,6 +5,9 @@
  */
 package HungerGames.EventsList;
 
+import HungerGames.EventsList.BearAttack.BearAttack;
+import HungerGames.EventsList.ForestFire.ForestFire;
+import HungerGames.EventsList.WolfPack.WolfPack;
 import HungerGames.Tribute;
 import java.util.Random;
 
@@ -12,11 +15,26 @@ import java.util.Random;
  *
  * @author chri8160
  */
-public class RandomEvent{
+public final class RandomEvent{
     
     
     public RandomEvent(Tribute t){
-        int num=(int)(Math.random()*2)+1;
-        
+        int num=(int)(Math.random()*3)+1;
+        if(num==3) 
+            BearAttackMethod(t);
+        else if(num==2)
+            WolfPackMethod(t);
+        else
+            ForestFireMethod(t);
+    }
+    
+    public void BearAttackMethod(Tribute t){
+        BearAttack b = new BearAttack(t);
+    }
+    public void WolfPackMethod(Tribute t){
+        WolfPack w = new WolfPack(t);
+    }
+    public void ForestFireMethod(Tribute t){
+        ForestFire f = new ForestFire(t);
     }
 }

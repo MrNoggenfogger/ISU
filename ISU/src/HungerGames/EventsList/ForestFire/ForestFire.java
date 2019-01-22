@@ -13,7 +13,7 @@ import HungerGames.Tribute;
  * @author chri8160
  */
 public class ForestFire extends Event{
-
+    public int order = 1; 
     public ForestFire(Tribute t) {
         super(t);
     }

@@ -14,7 +14,7 @@ import HungerGames.Tribute;
  * @author chri8160
  */
 public class FindShelter extends Event{
-
+    int order = 1;
     public FindShelter(Tribute t) {
         super(t);
     }

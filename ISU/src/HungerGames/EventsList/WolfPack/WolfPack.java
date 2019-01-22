@@ -13,7 +13,7 @@ import HungerGames.Tribute;
  * @author chri8160
  */
 public class WolfPack extends Event{
-
+    public int order = 2;
     public WolfPack(Tribute t) {
         super(t);
     }

@@ -13,9 +13,9 @@ import static java.lang.Math.random;
  *
  * @author chri8160
  */
-public abstract class Tribute {
+public class Tribute {
     private String name = "";
-    public int[] stats;
+    public int[] stats = new int[7];
     public int hunger=0;
     public int health=100;
     public Tribute(String nm){
@@ -28,5 +28,13 @@ public abstract class Tribute {
     
     public Tribute(String nm,int a, int ca, int cl, int r, int b, int f, int co){
         
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public void setName(String s){
+        name = s;
     }
 }

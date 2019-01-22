@@ -15,7 +15,7 @@ import HungerGames.Tribute;
 public class BearAttack extends Event{
 
    
-    
+    public int order = 0;
     public BearAttack(Tribute t) {
         super(t);
     }
