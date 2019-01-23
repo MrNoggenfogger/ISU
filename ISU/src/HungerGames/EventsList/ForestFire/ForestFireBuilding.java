@@ -19,14 +19,14 @@ public class ForestFireBuilding extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You quickly build a stone wall around yourself as the fire surrounds you, protecting yourself from harm");
+    protected void Reward() {
+        h.printArea("You quickly build a stone wall around yourself as the fire surrounds you, protecting yourself from harm");
     }
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("You dash through the flames, heavily burning yourself in the process");
-        t.health-=35;
+    protected void Punishment() {
+        h.printArea("You dash through the flames, heavily burning yourself in the process");
+        t.health-=50;
     }
 
     @Override

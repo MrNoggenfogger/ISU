@@ -19,15 +19,15 @@ public class BearAttackCombat extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You take down the bear with a swift blow to the head, gaining an extra food source");
+    protected void Reward() {
+        h.printArea("You take down the bear with a swift blow to the head, gaining an extra food source");
         t.hunger-=10;
     }
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("You attack the bear, but it shrugs off the blow, landing a light cut");
-        t.health-=10;
+    protected void Punishment() {
+        h.printArea("You attack the bear, but it shrugs off the blow, landing a light cut");
+        t.health-=20;
         BearAttackRun b = new BearAttackRun(t);
     }
 

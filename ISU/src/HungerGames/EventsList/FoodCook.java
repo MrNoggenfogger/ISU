@@ -17,21 +17,23 @@ public class FoodCook extends Event{
         super(t);
     }
 
+    
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You cook your meal over a flame");
-        t.hunger-=50;
+    protected void Reward() {
+        h.printArea("You cook your meal over a flame");
+        t.hunger-=30;
     }
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("You eat the food raw");
-        t.hunger-=20;
+    protected void Punishment() {
+        h.printArea("You eat the food raw");
+        t.hunger-=15;
     }
 
     @Override
     protected void setRequirement() {
         requirement = fire;
     }
+    
     
 }

@@ -1,5 +1,6 @@
 package HungerGames.EventsList;
 
+import HungerGames.HungerGames;
 import HungerGames.Tribute;
 
 
@@ -17,7 +18,7 @@ import HungerGames.Tribute;
 public abstract class Event {
     
     protected int requirement;
-    
+    protected Tribute t;
     public final static int archery = 0;
     public final static int building = 1;
     public final static int camouflage = 2;
@@ -25,20 +26,31 @@ public abstract class Event {
     public final static int combat = 4;
     public final static int fire = 5;
     public final static int running = 6;
-    protected int[] requirements;
+    protected int[] requirements = new int[7];
     boolean passFail=false;
-    protected int requiredStat;        
-    protected int minimum = 0;
+    protected int requiredStat;      
+    protected static HungerGames h;
+    protected abstract void Reward();
     
-    protected abstract void Reward(Tribute t);
-    
-    protected abstract void Punishment(Tribute t);
+    protected abstract void Punishment();
     
     protected abstract void setRequirement();
     
-    public Event(Tribute t){
-        setRequirement();
-        if(requirements[requirement]<t.stats[requirement]) Reward(t);
-        else Punishment(t);
+    final public void Go(){
+       setRequirement();
+        if(t.stats[requirement]>4)
+            Reward();
+        else Punishment(); 
+    }
+    
+    public Event(Tribute tr){
+        t = tr;
+    }
+    public Event(Tribute tr, HungerGames hr){
+        t = tr;
+        h = hr;
+        for (int i = 0; i < 7; i++) {
+            requirements[i]=5;
+        }
     }
 }

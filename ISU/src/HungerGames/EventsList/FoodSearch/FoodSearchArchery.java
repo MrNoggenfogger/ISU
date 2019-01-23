@@ -20,15 +20,15 @@ public class FoodSearchArchery extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You kill the rabbit with a well placed arrow");
+    protected void Reward() {
+        h.printArea("You kill the rabbit with a well placed arrow");
         FoodCook f = new FoodCook(t);
     }
         
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("The rabbit starts running away");
+    protected void Punishment() {
+        h.printArea("The rabbit starts running away");
         FoodSearchRunning r = new FoodSearchRunning(t);
     }
 

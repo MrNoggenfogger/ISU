@@ -20,14 +20,14 @@ public class WolfPackCombat extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You knock out the first, causing the rest of the wolves to scatter. You gain a small source of food");
+    protected void Reward() {
+        h.printArea("You knock out the first, causing the rest of the wolves to scatter. You gain a small source of food");
         FoodCook f = new FoodCook(t);
     }
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("You run away, sustaining a major injury in the process");
+    protected void Punishment() {
+        h.printArea("You run away, sustaining a major injury in the process");
         t.health-=30;
     }
 

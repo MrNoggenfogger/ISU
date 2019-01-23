@@ -20,12 +20,12 @@ public class WaterSearchClimb extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
+    protected void Reward() {
         System.out.println("You climb a tree, and see a source of water, which you drink from");
     }
 
     @Override
-    protected void Punishment(Tribute t) {
+    protected void Punishment() {
         int num=(int)(Math.random()*2)+1;
         if(num==2)System.out.println("You come across some water, which you drink from");
         else {

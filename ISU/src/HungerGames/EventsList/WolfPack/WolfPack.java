@@ -19,13 +19,13 @@ public class WolfPack extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You light a fire, and the wolves don't bug you anymore");
+    protected void Reward() {
+        h.printArea("You light a fire, and the wolves don't bug you anymore");
     }
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("You notice that you're surrounded by a pack of wolves");
+    protected void Punishment() {
+        h.printArea("You notice that you're surrounded by a pack of wolves");
         WolfPackClimb c = new WolfPackClimb(t);
     }
 

@@ -15,19 +15,21 @@ import HungerGames.Tribute;
  */
 public class FindShelter extends Event{
     int order = 1;
-    public FindShelter(Tribute t) {
+    int i;
+    public FindShelter(Tribute t,int ir) {
         super(t);
+        i=ir;
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You manage to build a small shelter, that allows you to be safe for the night");
+    protected void Reward() {
+        h.printArea("\nYou manage to build a small shelter, that allows you to be safe for the night");
         Sleep s = new Sleep(t);
     }
 
     @Override
-    protected void Punishment(Tribute t) {
-        FindShelterCamo c = new FindShelterCamo(t);
+    protected void Punishment() {
+        FindShelterCamo c = new FindShelterCamo(t,i);
     }
 
     @Override

@@ -19,13 +19,13 @@ public class WaterSearch extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You manage to stumble upon water naturally");
+    protected void Reward() {
+        h.printArea("You manage to stumble upon water naturally");
     }
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("You are starting to get thirsty, and decide to look for a source of water");
+    protected void Punishment() {
+        h.printArea("You are starting to get thirsty, and decide to look for a source of water");
         WaterSearchClimb c = new WaterSearchClimb(t);
     }
 

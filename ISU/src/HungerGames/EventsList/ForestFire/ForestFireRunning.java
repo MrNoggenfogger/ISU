@@ -19,12 +19,12 @@ public class ForestFireRunning extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You manage to outrun the fire before it surrounds you");
+    protected void Reward() {
+        h.printArea("You manage to outrun the fire before it surrounds you");
     }
 
     @Override
-    protected void Punishment(Tribute t) {
+    protected void Punishment() {
         ForestFireBuilding b = new ForestFireBuilding(t);
     }
 

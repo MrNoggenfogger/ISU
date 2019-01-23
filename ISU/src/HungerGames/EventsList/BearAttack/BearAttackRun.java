@@ -19,15 +19,15 @@ public class BearAttackRun extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You succeed in running, but are exhausted by the effort");
+    protected void Reward() {
+        h.printArea("You succeed in running, but are exhausted by the effort");
         t.hunger+=10;
     }
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("You get away from the bear, but not before it lands a swipe on you.");
-        t.health-=20;
+    protected void Punishment() {
+        h.printArea("You get away from the bear, but not before it lands a swipe on you.");
+        t.health-=30;
     }
 
     @Override

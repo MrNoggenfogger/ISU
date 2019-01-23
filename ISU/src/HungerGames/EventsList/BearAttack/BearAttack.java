@@ -21,15 +21,15 @@ public class BearAttack extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You manage to shoot the bear before it reaches you, granting you an extra food source");
+    protected void Reward() {
+        h.printArea("You manage to shoot the bear before it reaches you, granting you an extra food source");
         t.hunger-=10;
     }
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("The bear closes in on you, landing a grazing blow");
-        t.health-=5;
+    protected void Punishment() {
+        h.printArea("The bear closes in on you, landing a grazing blow");
+        t.health-=10;
         BearAttackCombat b= new BearAttackCombat(t);
     }
 

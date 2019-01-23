@@ -15,9 +15,12 @@ import static java.lang.Math.random;
  */
 public class Tribute {
     private String name = "";
-    public int[] stats = new int[7];
+    
+    public int stats[] = new int[7];
     public int hunger=0;
     public int health=100;
+    private boolean Alive=true;
+    public static int amountAlive = 3;
     public Tribute(String nm){
         name=nm;
         for (int i = 0; i < 7; i++) {
@@ -36,5 +39,12 @@ public class Tribute {
     
     public void setName(String s){
         name = s;
+    }
+    public void Kill(){
+        Alive = false;
+        amountAlive--;
+    }
+    public boolean isAlive(){
+        return Alive;
     }
 }

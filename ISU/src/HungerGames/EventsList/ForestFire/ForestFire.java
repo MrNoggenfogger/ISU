@@ -19,13 +19,13 @@ public class ForestFire extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You create a controlled burn, stopping the fire before it reaches you");
+    protected void Reward() {
+        h.printArea("You create a controlled burn, stopping the fire before it reaches you");
     }
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("The fire starts to close in");
+    protected void Punishment() {
+        h.printArea("The fire starts to close in");
         ForestFireRunning r = new ForestFireRunning(t);
     }
 

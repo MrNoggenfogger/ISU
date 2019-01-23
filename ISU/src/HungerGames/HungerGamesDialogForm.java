@@ -14,9 +14,8 @@ public class HungerGamesDialogForm extends javax.swing.JDialog {
     /**
      * Creates new form HungerGamesDialogForm
      */
-    String name1;
-    String name2;
-    String name3;
+    String[] names = new String[3];
+    
     String signal;
     public HungerGamesDialogForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -120,21 +119,15 @@ public class HungerGamesDialogForm extends javax.swing.JDialog {
     }//GEN-LAST:event_btncancelActionPerformed
 
     private void btnokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnokActionPerformed
-        name1 = txtname1.getText();
-        name2 = txtname2.getText();
-        name3 = txtname3.getText();
+        names[0] = txtname1.getText();
+        names[1] = txtname2.getText();
+        names[2] = txtname3.getText();
         signal="ok";
         this.dispose();
     }//GEN-LAST:event_btnokActionPerformed
     
-    public String getName1(){
-        return name1;
-    }
-    public String getName2(){
-        return name2;
-    }
-    public String getName3(){
-        return name3;
+    public String getName(int i){
+        return names[i];
     }
     
     public String getSignal(){

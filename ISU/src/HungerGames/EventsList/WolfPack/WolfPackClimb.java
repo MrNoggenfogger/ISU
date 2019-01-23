@@ -19,14 +19,14 @@ public class WolfPackClimb extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You climb a nearby tree, safe from the wolves");
+    protected void Reward() {
+        h.printArea("You climb a nearby tree, safe from the wolves");
     }
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("They start the attack");
-        t.health-=5;
+    protected void Punishment() {
+        h.printArea("They start the attack");
+        t.health-=10;
         WolfPackCombat c = new WolfPackCombat(t);
     }
 

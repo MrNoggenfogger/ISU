@@ -20,15 +20,15 @@ public class FoodSearchRunning extends Event{
     }
 
     @Override
-    protected void Reward(Tribute t) {
-        System.out.println("You manage to catch the rabbit with your bare hands");
+    protected void Reward() {
+        h.printArea("You manage to catch the rabbit with your bare hands");
         FoodCook f = new FoodCook(t);
     }
         
 
     @Override
-    protected void Punishment(Tribute t) {
-        System.out.println("You don't catch the rabbit");
+    protected void Punishment() {
+        h.printArea("You don't catch the rabbit");
     }
 
     @Override
