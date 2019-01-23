@@ -5,6 +5,27 @@
  */
 package HungerGames;
 
+import HungerGames.EventsList.BearAttack.BearAttack;
+import HungerGames.EventsList.BearAttack.BearAttackCombat;
+import HungerGames.EventsList.BearAttack.BearAttackRun;
+import HungerGames.EventsList.Event;
+import HungerGames.EventsList.FindShelter.FindShelter;
+import HungerGames.EventsList.FindShelter.FindShelterCamo;
+import HungerGames.EventsList.FindShelter.FindShelterClimb;
+import HungerGames.EventsList.FoodCook;
+import HungerGames.EventsList.FoodSearch.FoodSearch;
+import HungerGames.EventsList.FoodSearch.FoodSearchArchery;
+import HungerGames.EventsList.FoodSearch.FoodSearchRunning;
+import HungerGames.EventsList.ForestFire.ForestFire;
+import HungerGames.EventsList.ForestFire.ForestFireBuilding;
+import HungerGames.EventsList.ForestFire.ForestFireRunning;
+import HungerGames.EventsList.Sleep;
+import HungerGames.EventsList.WaterSearch.WaterSearch;
+import HungerGames.EventsList.WaterSearch.WaterSearchClimb;
+import HungerGames.EventsList.WolfPack.WolfPack;
+import HungerGames.EventsList.WolfPack.WolfPackClimb;
+import HungerGames.EventsList.WolfPack.WolfPackCombat;
+
 /**
  *
  * @author chri8160
@@ -14,10 +35,28 @@ public class HungerGames extends javax.swing.JFrame {
     /**
      * Creates new form HungerGames
      */
-    Tribute t1 ;
-    Tribute t2;
-    Tribute t3;
-    
+    Tribute[] t = new Tribute[3];
+    FoodSearch[] f = new FoodSearch[3];
+    FindShelter[] s = new FindShelter[3];
+    WaterSearch[] w = new WaterSearch[3];
+    FoodCook[] c = new FoodCook[3];
+    Sleep[] sl = new Sleep[3];
+    BearAttack[] ba = new BearAttack[3];
+    BearAttackCombat[] bac = new BearAttackCombat[3];
+    BearAttackRun[] bar = new BearAttackRun[3];
+    FoodSearchArchery[] fa = new FoodSearchArchery[3];
+    FoodSearchRunning[] fr = new FoodSearchRunning[3];
+    FindShelterCamo[] fsc = new FindShelterCamo[3];
+    FindShelterClimb[] fcl = new FindShelterClimb[3];
+    ForestFire[] ff = new ForestFire[3];
+    ForestFireBuilding[] ffb = new ForestFireBuilding[3];
+    ForestFireRunning[] ffr = new ForestFireRunning[3];
+    WaterSearchClimb[] wc = new WaterSearchClimb[3];
+    WolfPack[] wp = new WolfPack[3];
+    WolfPackClimb[] wpc = new WolfPackClimb[3];
+    WolfPackCombat[] wpco = new WolfPackCombat[3];
+    int counter = 0;
+    boolean gg = false;
     public HungerGames() {
         initComponents();
         btnrestart.setEnabled(false);
@@ -34,7 +73,7 @@ public class HungerGames extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtarea = new javax.swing.JTextArea();
         btnstart = new javax.swing.JButton();
         btnrestart = new javax.swing.JButton();
         lblname1 = new javax.swing.JLabel();
@@ -47,9 +86,9 @@ public class HungerGames extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtarea.setColumns(20);
+        txtarea.setRows(5);
+        jScrollPane1.setViewportView(txtarea);
 
         btnstart.setText("Start");
         btnstart.addActionListener(new java.awt.event.ActionListener() {
@@ -153,20 +192,64 @@ public class HungerGames extends javax.swing.JFrame {
         HungerGamesDialogForm form = new HungerGamesDialogForm(this,true);
         form.setVisible(true);
         if(form.getSignal().equals("ok")){
-            t1 = new Tribute(form.getName1());
-            lblname1.setText(t1.getName());
-            t2 = new Tribute(form.getName2());
-            lblname2.setText(t2.getName());
-            t3 = new Tribute(form.getName3());
-            lblname3.setText(t3.getName());
+            for (int i = 0; i < 3; i++) {
+            t[i] = new Tribute(form.getName(i));
+            if(i==0)lblname1.setText(t[i].getName());
+            else if(i==1)lblname2.setText(t[i].getName());
+            else lblname3.setText(t[i].getName());
+            f[i] = new FoodSearch(t[i],this);
+            s[i] = new FindShelter(t[i],i);
+            w[i] = new WaterSearch(t[i]);
+            c[i] = new FoodCook(t[i]);
+           sl[i]= new Sleep(t[i]);
+           ba[i]= new BearAttack(t[i]);
+            bac[i]= new BearAttackCombat(t[i]);
+            bar[i]= new BearAttackRun(t[i]);
+           fa[i] = new FoodSearchArchery(t[i]);
+           fr[i] = new FoodSearchRunning(t[i]);
+           fsc[i] = new FindShelterCamo(t[i],i);
+           fcl[i] = new FindShelterClimb(t[i],i);
+           ff[i] = new ForestFire(t[i]);
+           ffb[i] = new ForestFireBuilding(t[i]);
+           ffr[i] = new ForestFireRunning(t[i]);
+           wc[i] = new WaterSearchClimb(t[i]);
+           wp[i] = new WolfPack(t[i]);
+           wpc[i] = new WolfPackClimb(t[i]);
+           wpco[i] = new WolfPackCombat(t[i]);
+            }
             btnrestart.setEnabled(true);
             btnrestart.setVisible(true);
             btnstart.setEnabled(false);
             btnstart.setVisible(false);
+            counter = 0;
             while(true){
                 for (int i = 0; i < 3; i++) {
-                    t(i)
+                    
+                    if(Tribute.amountAlive<=1){
+                        txtarea.append("\n" + t[i].getName() + " is the Winner!");
+                        gg=true;
+                        break;
+                    } 
+                    if(t[i].isAlive()){
+                    if(t[i].health<=0){
+                        txtarea.append("\n" + t[i].getName() + " has died");
+                        t[i].Kill();
+                    }
+                    if(t[i].hunger>=100){
+                        txtarea.append("\n" + t[i].getName() + " has starved to death");
+                        t[i].Kill();
+                    }
+                    else if(t[i].hunger>80) f[i].Go();
+                    else if(counter==4)w[i].Go();
+                    else if(counter==9)s[i].Go();
+                    else RandomEvent(i);
+                    t[i].hunger+=10;
+                        System.out.println(t[i].hunger + " and " + t[i].health);
+                    }
                 }
+                if(gg=true)break;
+                counter++;
+                System.out.println(counter+"");
             }
         }
     }//GEN-LAST:event_btnstartActionPerformed
@@ -181,6 +264,20 @@ public class HungerGames extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public void RandomEvent(int i){
+        int num=(int)(Math.random()*3)+1;
+        switch (num) {
+            case 3:
+                ba[i].Go();
+                break;
+            case 2:
+                wp[i].Go();
+                break;
+            default:
+                ff[i].Go();
+                break;
+        }
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -212,18 +309,21 @@ public class HungerGames extends javax.swing.JFrame {
             }
         });
     }
+    public void printArea(String s){
+        txtarea.append("\n" + s);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnrestart;
     private javax.swing.JButton btnstart;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblname1;
     private javax.swing.JLabel lblname2;
     private javax.swing.JLabel lblname3;
     private javax.swing.JLabel lblstatus1;
     private javax.swing.JLabel lblstatus2;
     private javax.swing.JLabel lblstatus3;
+    private javax.swing.JTextArea txtarea;
     // End of variables declaration//GEN-END:variables
 }
