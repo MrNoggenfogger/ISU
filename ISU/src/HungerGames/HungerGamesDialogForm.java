@@ -15,7 +15,13 @@ public class HungerGamesDialogForm extends javax.swing.JDialog {
      * Creates new form HungerGamesDialogForm
      */
     String[] names = new String[3];
-    
+    int archeries[] = new int[3];
+    int buildings[] = new int[3];
+    int camouflages[] = new int[3];
+    int climbings[] = new int[3];
+    int combats[] = new int[3];
+    int fires[] = new int[3];
+    int runnings[] = new int[3];
     String signal;
     public HungerGamesDialogForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -41,6 +47,41 @@ public class HungerGamesDialogForm extends javax.swing.JDialog {
         txtname1 = new javax.swing.JTextField();
         txtname2 = new javax.swing.JTextField();
         txtname3 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        pnl1 = new javax.swing.JPanel();
+        building0 = new javax.swing.JTextField();
+        camouflage0 = new javax.swing.JTextField();
+        building2 = new javax.swing.JTextField();
+        camouflage2 = new javax.swing.JTextField();
+        combat0 = new javax.swing.JTextField();
+        combat2 = new javax.swing.JTextField();
+        fire0 = new javax.swing.JTextField();
+        fire2 = new javax.swing.JTextField();
+        climbing0 = new javax.swing.JTextField();
+        climbing2 = new javax.swing.JTextField();
+        running0 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        running2 = new javax.swing.JTextField();
+        archery2 = new javax.swing.JTextField();
+        building1 = new javax.swing.JTextField();
+        camouflage1 = new javax.swing.JTextField();
+        combat1 = new javax.swing.JTextField();
+        fire1 = new javax.swing.JTextField();
+        climbing1 = new javax.swing.JTextField();
+        running1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        archery1 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        archery0 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -64,47 +105,292 @@ public class HungerGamesDialogForm extends javax.swing.JDialog {
 
         jLabel3.setText("Enter Name of Tribute 3:");
 
+        txtname1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtname1ActionPerformed(evt);
+            }
+        });
+
+        pnl1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        building0.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        building0.setText("0");
+
+        camouflage0.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        camouflage0.setText("0");
+
+        building2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        building2.setText("0");
+
+        camouflage2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        camouflage2.setText("0");
+
+        combat0.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        combat0.setText("0");
+
+        combat2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        combat2.setText("0");
+
+        fire0.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        fire0.setText("0");
+
+        fire2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        fire2.setText("0");
+
+        climbing0.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        climbing0.setText("0");
+
+        climbing2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        climbing2.setText("0");
+
+        running0.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        running0.setText("0");
+
+        jLabel4.setText("Enter Attributes");
+
+        jLabel5.setText("Tribute 1");
+
+        jLabel6.setText("Tribute 2");
+
+        jLabel7.setText("Tribute 3");
+
+        jLabel8.setText("Archery");
+
+        running2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        running2.setText("0");
+
+        archery2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        archery2.setText("0");
+
+        building1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        building1.setText("0");
+
+        camouflage1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        camouflage1.setText("0");
+
+        combat1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        combat1.setText("0");
+
+        fire1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        fire1.setText("0");
+
+        climbing1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        climbing1.setText("0");
+
+        running1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        running1.setText("0");
+
+        jLabel9.setText("Building");
+
+        archery1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        archery1.setText("0");
+
+        jLabel10.setText("Camouflage");
+
+        jLabel11.setText("Climbing");
+
+        jLabel12.setText("Combat");
+
+        jLabel14.setText("Fire");
+
+        jLabel15.setText("Running");
+
+        archery0.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        archery0.setText("0");
+        archery0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                archery0ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Only Change these if Stats Mode is Enabled!");
+
+        javax.swing.GroupLayout pnl1Layout = new javax.swing.GroupLayout(pnl1);
+        pnl1.setLayout(pnl1Layout);
+        pnl1Layout.setHorizontalGroup(
+            pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl1Layout.createSequentialGroup()
+                        .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9))
+                            .addGroup(pnl1Layout.createSequentialGroup()
+                                .addComponent(archery0, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(building0, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addGroup(pnl1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(camouflage1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(camouflage0, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(camouflage2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(pnl1Layout.createSequentialGroup()
+                        .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl1Layout.createSequentialGroup()
+                                .addComponent(archery1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(building1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnl1Layout.createSequentialGroup()
+                                .addComponent(archery2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(building2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(89, 89, 89)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(climbing0, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(climbing1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(climbing2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl1Layout.createSequentialGroup()
+                        .addComponent(combat2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(fire2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(running2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnl1Layout.createSequentialGroup()
+                        .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(combat0, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl1Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel15))
+                            .addGroup(pnl1Layout.createSequentialGroup()
+                                .addComponent(fire0, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(running0, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(pnl1Layout.createSequentialGroup()
+                        .addComponent(combat1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(fire1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(running1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23))
+            .addGroup(pnl1Layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addComponent(jLabel16)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnl1Layout.setVerticalGroup(
+            pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15))
+                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(archery0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(building0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(camouflage0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combat0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fire0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(running0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(climbing0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(archery1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(building1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(camouflage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combat1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fire1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(running1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(climbing1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(archery2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(building2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(camouflage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combat2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fire2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(running2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(climbing2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(35, 35, 35)
-                        .addComponent(txtname3, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(35, 35, 35)
-                        .addComponent(txtname2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(32, 32, 32)
-                        .addComponent(txtname1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btncancel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnok)))
-                .addGap(52, 52, 52))
+                        .addGap(59, 59, 59)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtname1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtname3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtname2))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 460, Short.MAX_VALUE)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btncancel)
+                                .addGap(307, 307, 307)
+                                .addComponent(btnok)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(pnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtname2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtname3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtname2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtname3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(pnl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnok)
                     .addComponent(btncancel))
@@ -123,12 +409,63 @@ public class HungerGamesDialogForm extends javax.swing.JDialog {
         names[0] = txtname1.getText();
         names[1] = txtname2.getText();
         names[2] = txtname3.getText();
+        archeries[0] = Integer.parseInt(archery0.getText());
+        archeries[1] = Integer.parseInt(archery1.getText());
+        archeries[2] = Integer.parseInt(archery2.getText());
+        buildings[0] = Integer.parseInt(building0.getText());
+        buildings[1] = Integer.parseInt(building1.getText());
+        buildings[2] = Integer.parseInt(building2.getText());
+        camouflages[0] = Integer.parseInt(camouflage0.getText());
+        camouflages[1] = Integer.parseInt(camouflage1.getText());
+        camouflages[2] = Integer.parseInt(camouflage2.getText());
+        climbings[0] = Integer.parseInt(climbing0.getText());
+        climbings[1] = Integer.parseInt(climbing1.getText());
+        climbings[2] = Integer.parseInt(climbing2.getText());
+        combats[0] = Integer.parseInt(combat0.getText());
+        combats[1] = Integer.parseInt(combat1.getText());
+        combats[2] = Integer.parseInt(combat2.getText());
+        fires[0] = Integer.parseInt(fire0.getText());
+        fires[1] = Integer.parseInt(fire1.getText());
+        fires[2] = Integer.parseInt(fire2.getText());
+        runnings[0] = Integer.parseInt(fire0.getText());
+        runnings[1] = Integer.parseInt(fire1.getText());
+        runnings[2] = Integer.parseInt(fire2.getText());
         signal="ok";
         this.dispose();
     }//GEN-LAST:event_btnokActionPerformed
+
+    private void txtname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtname1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtname1ActionPerformed
+
+    private void archery0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archery0ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_archery0ActionPerformed
     
     public String getName(int i){
         return names[i];
+    }
+    
+    public int getArchery(int i){
+        return archeries[i];
+    }
+    public int getBuilding(int i){
+        return buildings[i];
+    }
+    public int getCamouflage(int i){
+        return camouflages[i];
+    }
+    public int getClimbing(int i){
+        return climbings[i];
+    }
+    public int getCombat(int i){
+        return combats[i];
+    }
+    public int getFire(int i){
+        return fires[i];
+    }
+    public int getRunning(int i){
+        return runnings[i];
     }
     
     public String getSignal(){
@@ -177,12 +514,47 @@ public class HungerGamesDialogForm extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField archery0;
+    private javax.swing.JTextField archery1;
+    private javax.swing.JTextField archery2;
     private javax.swing.JButton btncancel;
     private javax.swing.JButton btnok;
+    private javax.swing.JTextField building0;
+    private javax.swing.JTextField building1;
+    private javax.swing.JTextField building2;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextField camouflage0;
+    private javax.swing.JTextField camouflage1;
+    private javax.swing.JTextField camouflage2;
+    private javax.swing.JTextField climbing0;
+    private javax.swing.JTextField climbing1;
+    private javax.swing.JTextField climbing2;
+    private javax.swing.JTextField combat0;
+    private javax.swing.JTextField combat1;
+    private javax.swing.JTextField combat2;
+    private javax.swing.JTextField fire0;
+    private javax.swing.JTextField fire1;
+    private javax.swing.JTextField fire2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel pnl1;
+    private javax.swing.JTextField running0;
+    private javax.swing.JTextField running1;
+    private javax.swing.JTextField running2;
     private javax.swing.JTextField txtname1;
     private javax.swing.JTextField txtname2;
     private javax.swing.JTextField txtname3;

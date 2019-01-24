@@ -1,6 +1,7 @@
 package HungerGames;
 
 
+import static HungerGames.EventsList.Event.*;
 import static java.lang.Math.random;
 
 /*
@@ -27,6 +28,17 @@ public class Tribute {
         for (int i = 0; i < 7; i++) {
             stats[i] = (int)(Math.random()*7)+1;
         }
+        identifier = id;
+    }
+    public Tribute(String nm,int id,int arc, int bld, int cmf, int clm, int cmb, int fre, int run){
+        name=nm;
+        stats[archery] = arc;
+        stats[building] = bld;
+        stats[camouflage] = cmf;
+        stats[climbing] = clm;
+        stats[combat] = cmb;
+        stats[fire] = fre;
+        stats[running] = run;
         identifier = id;
     }
     
