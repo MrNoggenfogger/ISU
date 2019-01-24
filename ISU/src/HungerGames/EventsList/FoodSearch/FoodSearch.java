@@ -15,28 +15,33 @@ import HungerGames.Tribute;
  * @author chri8160
  */
 public class FoodSearch extends Event{
-
-    public FoodSearch(Tribute t) {
-        super(t);
+    FoodSearchArchery[] fsat;
+    FoodCook[] ft;
+    public FoodSearch(Tribute t,HungerGames hr, FoodSearchArchery[] fsa,FoodCook[] f) {
+        super(t,hr);
+        fsat=fsa;
+        ft=f;
     }
 
     @Override
     protected void Reward() {
-        h.printArea("You manage to stealthily take down the rabbit");
-        FoodCook f = new FoodCook(t);
+        h.printArea("They manage to stealthily take down the rabbit");
+        ft[t.identifier].Go();
     }
 
     @Override
     protected void Punishment() {
-        h.printArea("The rabbit notices you");
-        FoodSearchArchery a = new FoodSearchArchery(t);
+        h.printArea("The rabbit notices them");
+        fsat[t.identifier].Go();
     }
 
     @Override
     protected void setRequirement() {
         requirement = camouflage;
     }
-    public FoodSearch(Tribute tr, HungerGames hr){
-       super(tr,hr);
+
+    @Override
+    protected void firstStatement() {
+        h.printArea(t.getName() + " starts to get hungry, and searches for food, eventually finding a rabbit");
     }
 }

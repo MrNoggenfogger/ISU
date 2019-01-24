@@ -14,27 +14,36 @@ import HungerGames.Tribute;
  * @author chri8160
  */
 public class FoodSearchArchery extends Event{
-
-    public FoodSearchArchery(Tribute t) {
+    
+    FoodSearchRunning[] fsrt;
+    FoodCook[] ft;
+    public FoodSearchArchery(Tribute t,FoodSearchRunning[] fsr,FoodCook[] f) {
         super(t);
+        fsrt = fsr;
+        ft=f;
     }
 
     @Override
     protected void Reward() {
-        h.printArea("You kill the rabbit with a well placed arrow");
-        FoodCook f = new FoodCook(t);
+        h.printArea("They kill the rabbit with a well placed arrow");
+        ft[t.identifier].Go();
     }
         
 
     @Override
     protected void Punishment() {
         h.printArea("The rabbit starts running away");
-        FoodSearchRunning r = new FoodSearchRunning(t);
+        fsrt[t.identifier].Go();
     }
 
     @Override
     protected void setRequirement() {
         requirement = archery;
+    }
+
+    @Override
+    protected void firstStatement() {
+        
     }
     
 }

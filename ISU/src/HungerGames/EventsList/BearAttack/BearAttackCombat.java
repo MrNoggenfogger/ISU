@@ -13,27 +13,35 @@ import HungerGames.Tribute;
  * @author chri8160
  */
 public class BearAttackCombat extends Event{
-
-    public BearAttackCombat(Tribute t) {
+    
+    private BearAttackRun[] bart;
+    
+    public BearAttackCombat(Tribute t,BearAttackRun[] bar) {
         super(t);
+        bart = bar;
     }
 
     @Override
     protected void Reward() {
-        h.printArea("You take down the bear with a swift blow to the head, gaining an extra food source");
+        h.printArea("They take down the bear with a swift blow to the head, gaining an extra food source\n");
         t.hunger-=10;
     }
 
     @Override
     protected void Punishment() {
-        h.printArea("You attack the bear, but it shrugs off the blow, landing a light cut");
+        h.printArea("They attack the bear, but it shrugs off the blow, landing a cut");
         t.health-=20;
-        BearAttackRun b = new BearAttackRun(t);
+        bart[t.identifier].Go();
     }
 
     @Override
     protected void setRequirement() {
         requirement = combat;
+    }
+
+    @Override
+    protected void firstStatement() {
+     
     }
     
 }

@@ -14,24 +14,31 @@ import HungerGames.Tribute;
  */
 public class WolfPack extends Event{
     public int order = 2;
-    public WolfPack(Tribute t) {
+    WolfPackClimb[] wpct;
+    public WolfPack(Tribute t,WolfPackClimb[] wpc) {
         super(t);
+        wpct = wpc;
     }
 
     @Override
     protected void Reward() {
-        h.printArea("You light a fire, and the wolves don't bug you anymore");
+        h.printArea("They light a fire, and the wolves don't bug them anymore\n");
     }
 
     @Override
     protected void Punishment() {
-        h.printArea("You notice that you're surrounded by a pack of wolves");
-        WolfPackClimb c = new WolfPackClimb(t);
+        h.printArea("They're quickly surrounded by a pack of wolves");
+        wpct[t.identifier].Go();
     }
 
     @Override
     protected void setRequirement() {
         requirement = fire;
+    }
+
+    @Override
+    protected void firstStatement() {
+       h.printArea(t.getName() + " notices a few wolves starting to approach from the shadows");
     }
     
 }

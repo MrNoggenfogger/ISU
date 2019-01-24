@@ -15,26 +15,33 @@ import HungerGames.Tribute;
  */
 public class FindShelterClimb extends Event{
     int i;
-    public FindShelterClimb(Tribute t, int ir) {
+    Sleep[] st;
+    public FindShelterClimb(Tribute t, int ir,Sleep[] s) {
         super(t);
         i=ir;
+        st=s;
     }
 
     @Override
     protected void Reward() {
-        h.printArea("You climb into the trees for the night, safe from any one wandering around");
-        Sleep s = new Sleep(t);
+        h.printArea("They climb into the trees for the night, safe from any one wandering around");
+        st[t.identifier].Go();
     }
 
     @Override
     protected void Punishment() {
-        h.printArea("\nYou're unable to find any shelter for the night");
+        h.printArea("They're unable to find any shelter for the night");
         h.RandomEvent(i);
     }
 
     @Override
     protected void setRequirement() {
     requirement = climbing;
+    }
+
+    @Override
+    protected void firstStatement() {
+        
     }
     
 }

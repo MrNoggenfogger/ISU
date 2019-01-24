@@ -13,25 +13,33 @@ import HungerGames.Tribute;
  * @author chri8160
  */
 public class WaterSearch extends Event{
-
-    public WaterSearch(Tribute t) {
+    
+    WaterSearchClimb[] wsct;
+    
+    public WaterSearch(Tribute t, WaterSearchClimb[] wsc) {
         super(t);
+        wsct = wsc;
     }
 
     @Override
     protected void Reward() {
-        h.printArea("You manage to stumble upon water naturally");
+        h.printArea("They manage to stumble upon water naturally\n");
     }
 
     @Override
     protected void Punishment() {
-        h.printArea("You are starting to get thirsty, and decide to look for a source of water");
-        WaterSearchClimb c = new WaterSearchClimb(t);
+        h.printArea("They decide to look for a source of water");
+        wsct[t.identifier].Go();
     }
 
     @Override
     protected void setRequirement() {
         requirement = running;
+    }
+
+    @Override
+    protected void firstStatement() {
+        h.printArea(t.getName() + " is starting to get thirsty");
     }
     
 }

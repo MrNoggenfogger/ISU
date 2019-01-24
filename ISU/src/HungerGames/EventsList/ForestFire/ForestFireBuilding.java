@@ -20,18 +20,23 @@ public class ForestFireBuilding extends Event{
 
     @Override
     protected void Reward() {
-        h.printArea("You quickly build a stone wall around yourself as the fire surrounds you, protecting yourself from harm");
+        h.printArea("They quickly build a stone wall around themself as the fire surrounds them, protecting them from harm\n");
     }
 
     @Override
     protected void Punishment() {
-        h.printArea("You dash through the flames, heavily burning yourself in the process");
+        h.printArea("They dash through the flames, heavily burning themself in the process\n");
         t.health-=50;
     }
 
     @Override
     protected void setRequirement() {
         requirement = building;
+    }
+
+    @Override
+    protected void firstStatement() {
+        
     }
     
 }

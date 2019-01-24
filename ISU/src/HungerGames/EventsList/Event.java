@@ -30,6 +30,8 @@ public abstract class Event {
     boolean passFail=false;
     protected int requiredStat;      
     protected static HungerGames h;
+    protected abstract void firstStatement();
+    
     protected abstract void Reward();
     
     protected abstract void Punishment();
@@ -37,6 +39,7 @@ public abstract class Event {
     protected abstract void setRequirement();
     
     final public void Go(){
+       firstStatement();
        setRequirement();
         if(t.stats[requirement]>4)
             Reward();

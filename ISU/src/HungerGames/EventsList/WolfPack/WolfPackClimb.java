@@ -13,26 +13,34 @@ import HungerGames.Tribute;
  * @author chri8160
  */
 public class WolfPackClimb extends Event{
-
-    public WolfPackClimb(Tribute t) {
+    
+    WolfPackCombat[] wpct;
+    
+    public WolfPackClimb(Tribute t,WolfPackCombat[] wpc) {
         super(t);
+        wpct = wpc;
     }
 
     @Override
     protected void Reward() {
-        h.printArea("You climb a nearby tree, safe from the wolves");
+        h.printArea("They climb a nearby tree, safe from the wolves\n");
     }
 
     @Override
     protected void Punishment() {
-        h.printArea("They start the attack");
+        h.printArea("The wolves start the attack");
         t.health-=10;
-        WolfPackCombat c = new WolfPackCombat(t);
+        wpct[t.identifier].Go();
     }
 
     @Override
     protected void setRequirement() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        requirement = climbing;
+    }
+
+    @Override
+    protected void firstStatement() {
+        
     }
   
 }

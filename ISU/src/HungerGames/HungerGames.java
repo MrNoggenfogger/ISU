@@ -8,7 +8,6 @@ package HungerGames;
 import HungerGames.EventsList.BearAttack.BearAttack;
 import HungerGames.EventsList.BearAttack.BearAttackCombat;
 import HungerGames.EventsList.BearAttack.BearAttackRun;
-import HungerGames.EventsList.Event;
 import HungerGames.EventsList.FindShelter.FindShelter;
 import HungerGames.EventsList.FindShelter.FindShelterCamo;
 import HungerGames.EventsList.FindShelter.FindShelterClimb;
@@ -36,31 +35,32 @@ public class HungerGames extends javax.swing.JFrame {
      * Creates new form HungerGames
      */
     Tribute[] t = new Tribute[3];
-    FoodSearch[] f = new FoodSearch[3];
-    FindShelter[] s = new FindShelter[3];
-    WaterSearch[] w = new WaterSearch[3];
-    FoodCook[] c = new FoodCook[3];
-    Sleep[] sl = new Sleep[3];
-    BearAttack[] ba = new BearAttack[3];
-    BearAttackCombat[] bac = new BearAttackCombat[3];
-    BearAttackRun[] bar = new BearAttackRun[3];
-    FoodSearchArchery[] fa = new FoodSearchArchery[3];
-    FoodSearchRunning[] fr = new FoodSearchRunning[3];
-    FindShelterCamo[] fsc = new FindShelterCamo[3];
-    FindShelterClimb[] fcl = new FindShelterClimb[3];
-    ForestFire[] ff = new ForestFire[3];
-    ForestFireBuilding[] ffb = new ForestFireBuilding[3];
-    ForestFireRunning[] ffr = new ForestFireRunning[3];
-    WaterSearchClimb[] wc = new WaterSearchClimb[3];
-    WolfPack[] wp = new WolfPack[3];
-    WolfPackClimb[] wpc = new WolfPackClimb[3];
-    WolfPackCombat[] wpco = new WolfPackCombat[3];
+    public FoodSearch[] f = new FoodSearch[3];
+    public FindShelter[] s = new FindShelter[3];
+    public WaterSearch[] w = new WaterSearch[3];
+    public FoodCook[] c = new FoodCook[3];
+    public Sleep[] sl = new Sleep[3];
+    public BearAttack[] ba = new BearAttack[3];
+    public BearAttackCombat[] bac = new BearAttackCombat[3];
+    public BearAttackRun[] bar = new BearAttackRun[3];
+    public FoodSearchArchery[] fa = new FoodSearchArchery[3];
+    public FoodSearchRunning[] fr = new FoodSearchRunning[3];
+    public FindShelterCamo[] fsc = new FindShelterCamo[3];
+    public FindShelterClimb[] fcl = new FindShelterClimb[3];
+    public ForestFire[] ff = new ForestFire[3];
+    public ForestFireBuilding[] ffb = new ForestFireBuilding[3];
+    public ForestFireRunning[] ffr = new ForestFireRunning[3];
+    public WaterSearchClimb[] wc = new WaterSearchClimb[3];
+    public WolfPack[] wp = new WolfPack[3];
+    public WolfPackClimb[] wpc = new WolfPackClimb[3];
+    public WolfPackCombat[] wpco = new WolfPackCombat[3];
     int counter = 0;
     boolean gg = false;
+    int inext = 0;
+    public boolean firstTime = true;
     public HungerGames() {
         initComponents();
         btnrestart.setEnabled(false);
-        btnrestart.setVisible(false);
     }
 
     /**
@@ -83,11 +83,15 @@ public class HungerGames extends javax.swing.JFrame {
         lblstatus2 = new javax.swing.JLabel();
         lblstatus3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        btnnext = new javax.swing.JButton();
+        btnend = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtarea.setColumns(20);
         txtarea.setRows(5);
+        txtarea.setText("Welcome to the Hunger Games Simulator! Press 'Start' to get started.  3 Tributes \nwill attempt to survive in the wilderness for as long as possible.  The last one \nalive wins!  If somehow more than one person is still alive at the end of one year\nthen anyone still alive will win.  Place your bet on who will survive!");
         jScrollPane1.setViewportView(txtarea);
 
         btnstart.setText("Start");
@@ -119,45 +123,56 @@ public class HungerGames extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Tribute                                                         Status");
 
+        btnnext.setText("Next");
+        btnnext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnextActionPerformed(evt);
+            }
+        });
+
+        btnend.setText("End");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblname1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(59, 59, 59))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnrestart)
+                                .addGap(15, 15, 15)
+                                .addComponent(btnend)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnnext)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnstart, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(24, 24, 24))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblname2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblstatus2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblstatus1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblname3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblstatus3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(btnrestart)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnstart, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(lblname3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblstatus3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblname2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblname1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblstatus1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblstatus2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(265, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,9 +180,13 @@ public class HungerGames extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnstart, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnrestart))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnstart, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnrestart)
+                        .addComponent(btnnext)
+                        .addComponent(btnend))
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -175,7 +194,7 @@ public class HungerGames extends javax.swing.JFrame {
                     .addComponent(lblname1)
                     .addComponent(lblstatus1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblname2)
                     .addComponent(lblstatus2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -191,38 +210,39 @@ public class HungerGames extends javax.swing.JFrame {
     private void btnstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstartActionPerformed
         HungerGamesDialogForm form = new HungerGamesDialogForm(this,true);
         form.setVisible(true);
-        if(form.getSignal().equals("ok")){
+        if(form.getSignal().equals("ok")&&firstTime){
+            txtarea.setText("");
             for (int i = 0; i < 3; i++) {
-            t[i] = new Tribute(form.getName(i));
+            t[i] = new Tribute(form.getName(i),i);
             if(i==0)lblname1.setText(t[i].getName());
             else if(i==1)lblname2.setText(t[i].getName());
             else lblname3.setText(t[i].getName());
-            f[i] = new FoodSearch(t[i],this);
-            s[i] = new FindShelter(t[i],i);
-            w[i] = new WaterSearch(t[i]);
+            f[i] = new FoodSearch(t[i],this,fa,c);
             c[i] = new FoodCook(t[i]);
            sl[i]= new Sleep(t[i]);
-           ba[i]= new BearAttack(t[i]);
-            bac[i]= new BearAttackCombat(t[i]);
-            bar[i]= new BearAttackRun(t[i]);
-           fa[i] = new FoodSearchArchery(t[i]);
-           fr[i] = new FoodSearchRunning(t[i]);
-           fsc[i] = new FindShelterCamo(t[i],i);
-           fcl[i] = new FindShelterClimb(t[i],i);
-           ff[i] = new ForestFire(t[i]);
+           bar[i]= new BearAttackRun(t[i]);
+           bac[i]= new BearAttackCombat(t[i],bar);
+           ba[i]= new BearAttack(t[i],bac);
+           fr[i] = new FoodSearchRunning(t[i],c);
+           fa[i] = new FoodSearchArchery(t[i],fr,c);
+           s[i] = new FindShelter(t[i],i,fsc,sl);
+           fcl[i] = new FindShelterClimb(t[i],i,sl);
+           fsc[i] = new FindShelterCamo(t[i],i,fcl,sl);
            ffb[i] = new ForestFireBuilding(t[i]);
-           ffr[i] = new ForestFireRunning(t[i]);
+           ffr[i] = new ForestFireRunning(t[i],ffb);
+           ff[i] = new ForestFire(t[i],ffr);
            wc[i] = new WaterSearchClimb(t[i]);
-           wp[i] = new WolfPack(t[i]);
-           wpc[i] = new WolfPackClimb(t[i]);
-           wpco[i] = new WolfPackCombat(t[i]);
+            w[i] = new WaterSearch(t[i],wc);
+           wp[i] = new WolfPack(t[i],wpc);
+           wpco[i] = new WolfPackCombat(t[i],c);
+           wpc[i] = new WolfPackClimb(t[i],wpco);
+            
             }
             btnrestart.setEnabled(true);
-            btnrestart.setVisible(true);
             btnstart.setEnabled(false);
-            btnstart.setVisible(false);
+            btnnext.setEnabled(true);
+            btnend.setEnabled(true);
             counter = 0;
-            while(true){
                 for (int i = 0; i < 3; i++) {
                     
                     if(Tribute.amountAlive<=1){
@@ -232,34 +252,179 @@ public class HungerGames extends javax.swing.JFrame {
                     } 
                     if(t[i].isAlive()){
                     if(t[i].health<=0){
-                        txtarea.append("\n" + t[i].getName() + " has died");
+                        txtarea.append("\n" + t[i].getName() + " bleeds out");
+                        if(i==2)lblstatus1.setText("Dead");
+                        else if(i==1)lblstatus2.setText("Dead");
+                        else lblstatus3.setText("Dead");
                         t[i].Kill();
-                    }
+                    }if(t[i].isAlive()){
                     if(t[i].hunger>=100){
                         txtarea.append("\n" + t[i].getName() + " has starved to death");
                         t[i].Kill();
-                    }
-                    else if(t[i].hunger>80) f[i].Go();
+                        if(i==2)lblstatus1.setText("Dead");
+                        else if(i==1)lblstatus2.setText("Dead");
+                        else lblstatus3.setText("Dead");
+                    }if(t[i].isAlive()){
+                    if(t[i].hunger>80) f[i].Go();
                     else if(counter==4)w[i].Go();
                     else if(counter==9)s[i].Go();
                     else RandomEvent(i);
                     t[i].hunger+=10;
-                        System.out.println(t[i].hunger + " and " + t[i].health);
+                    }
+                    }
                     }
                 }
-                if(gg=true)break;
+                if(counter>3650){
+                    txtarea.append("\n");
+                    if(t[1].isAlive()&&t[2].isAlive()&&t[0].isAlive())txtarea.append("It's been 1 year, everyone wins!");
+                    else if(t[0].isAlive()==false)txtarea.append("It's been 1 year, both " + t[1].getName() + " and " + t[2].getName() + " win!");
+                    else if(t[1].isAlive()==false)txtarea.append("It's been 1 year, both " + t[0].getName() + " and " + t[2].getName() + " win!");
+                    else txtarea.append("It's been 1 year, both " + t[1].getName() + " and " + t[0].getName() + " win!");
+                    
+                }
                 counter++;
-                System.out.println(counter+"");
-            }
+            
         }
+        else if(form.getSignal().equals("ok")){
+            for (int i = 0; i < 3; i++) {
+            t[i] = new Tribute(form.getName(i),i);
+            if(i==0)lblname1.setText(t[i].getName());
+            else if(i==1)lblname2.setText(t[i].getName());
+            else lblname3.setText(t[i].getName());
+            }
+            btnrestart.setEnabled(true);
+            btnstart.setEnabled(false);
+            btnnext.setEnabled(true);
+            btnend.setEnabled(true);
+            counter = 0;
+                for (int i = 0; i < 3; i++) {
+                    
+                    if(Tribute.amountAlive<=1){
+                        txtarea.append("\n" + t[i].getName() + " is the Winner!");
+                        gg=true;
+                        break;
+                    } 
+                    if(t[i].isAlive()){
+                    if(t[i].health<=0){
+                        txtarea.append("\n" + t[i].getName() + " bleeds out");
+                        if(i==2)lblstatus1.setText("Dead");
+                        else if(i==1)lblstatus2.setText("Dead");
+                        else lblstatus3.setText("Dead");
+                        t[i].Kill();
+                    }if(t[i].isAlive()){
+                    if(t[i].hunger>=100){
+                        txtarea.append("\n" + t[i].getName() + " has starved to death");
+                        t[i].Kill();
+                        if(i==2)lblstatus1.setText("Dead");
+                        else if(i==1)lblstatus2.setText("Dead");
+                        else lblstatus3.setText("Dead");
+                    }if(t[i].isAlive()){
+                    if(t[i].hunger>80) f[i].Go();
+                    else if(counter==4)w[i].Go();
+                    else if(counter==9)s[i].Go();
+                    else RandomEvent(i);
+                    t[i].hunger+=10;
+                    }
+                    }
+                    }
+                }
+                if(counter>3650){
+                    txtarea.append("\n");
+                    if(t[1].isAlive()&&t[2].isAlive()&&t[0].isAlive())txtarea.append("It's been 1 year, everyone wins!");
+                    else if(t[0].isAlive()==false)txtarea.append("It's been 1 year, both " + t[1].getName() + " and " + t[2].getName() + " win!");
+                    else if(t[1].isAlive()==false)txtarea.append("It's been 1 year, both " + t[0].getName() + " and " + t[2].getName() + " win!");
+                    else txtarea.append("It's been 1 year, both " + t[1].getName() + " and " + t[0].getName() + " win!");
+                    
+                }
+                counter++;
+        }
+        else try{} catch(Exception e){}
     }//GEN-LAST:event_btnstartActionPerformed
 
     private void btnrestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrestartActionPerformed
-        btnstart.setEnabled(true);
-        btnstart.setVisible(true);
+     
+            lblname1.setText("Tribute 1");
+            lblname2.setText("Tribute 1");
+            lblname3.setText("Tribute 1");
+            for (int i = 0; i < 3; i++) {
+            t[i].health=100;
+            t[i].hunger=0;
+            t[i].Reroll();
+        }
+            Tribute.amountAlive=3;
+            btnrestart.setEnabled(true);
+            btnstart.setEnabled(false);
+            btnnext.setEnabled(true);
+            btnend.setEnabled(true);
+            counter = 0;
+    gg = false;
+    inext = 0;
+    lblstatus1.setText("Alive");
+    lblstatus2.setText("Alive");
+    lblstatus3.setText("Alive");
+    btnstart.setEnabled(true);
         btnrestart.setEnabled(false);
-        btnrestart.setVisible(false);
+        btnnext.setEnabled(false);
+        btnend.setEnabled(false);
+        txtarea.setText("");
+        
     }//GEN-LAST:event_btnrestartActionPerformed
+
+    private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
+                    
+                    
+                    if(Tribute.amountAlive<=1){
+                        txtarea.append("\n" + t[inext].getName() + " is the Winner!");
+                        gg=true;
+                        btnnext.setVisible(false);
+                    btnnext.setEnabled(false);
+                    btnend.setEnabled(false);
+                    btnend.setVisible(false);
+                    } 
+                    if(t[inext].isAlive()){
+                    if(t[inext].health<=0){
+                        txtarea.append("\n" + t[inext].getName() + " bleeds out");
+                        if(inext==2)lblstatus1.setText("Dead");
+                        else if(inext==1)lblstatus2.setText("Dead");
+                        else lblstatus3.setText("Dead");
+                        t[inext].Kill();
+                    }if(t[inext].isAlive()){
+                    if(t[inext].hunger>=100){
+                        txtarea.append("\n" + t[inext].getName() + " has starved to death");
+                        t[inext].Kill();
+                        if(inext==2)lblstatus1.setText("Dead");
+                        else if(inext==1)lblstatus2.setText("Dead");
+                        else lblstatus3.setText("Dead");
+                    }if(t[inext].isAlive()){
+                    if(t[inext].hunger>80) f[inext].Go();
+                    else if(counter==4)w[inext].Go();
+                    else if(counter==9)s[inext].Go();
+                    else RandomEvent(inext);
+                    t[inext].hunger+=10;
+                    }
+                    }
+                    }
+                
+                if(counter>3650){
+                    txtarea.append("\n");
+                    if(t[1].isAlive()&&t[2].isAlive()&&t[0].isAlive())txtarea.append("It's been 1 year, everyone wins!");
+                    else if(t[0].isAlive()==false)txtarea.append("It's been 1 year, both " + t[1].getName() + " and " + t[2].getName() + " win!");
+                    else if(t[1].isAlive()==false)txtarea.append("It's been 1 year, both " + t[0].getName() + " and " + t[2].getName() + " win!");
+                    else txtarea.append("It's been 1 year, both " + t[1].getName() + " and " + t[0].getName() + " win!");
+                    btnnext.setVisible(false);
+                    btnnext.setEnabled(false);
+                    btnend.setEnabled(false);
+                    btnend.setVisible(false);
+                    
+                }
+                if(gg==true){
+                    btnnext.setEnabled(false);
+                    btnend.setEnabled(false);
+                }
+                counter++;
+                if(inext==2)inext=0;
+                else inext++;
+    }//GEN-LAST:event_btnnextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -314,8 +479,11 @@ public class HungerGames extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnend;
+    private javax.swing.JButton btnnext;
     private javax.swing.JButton btnrestart;
     private javax.swing.JButton btnstart;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblname1;

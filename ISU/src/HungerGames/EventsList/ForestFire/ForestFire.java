@@ -14,24 +14,31 @@ import HungerGames.Tribute;
  */
 public class ForestFire extends Event{
     public int order = 1; 
-    public ForestFire(Tribute t) {
+    ForestFireRunning[] ffrt;
+    public ForestFire(Tribute t,ForestFireRunning[] ffr) {
         super(t);
+        ffrt = ffr;
     }
 
     @Override
     protected void Reward() {
-        h.printArea("You create a controlled burn, stopping the fire before it reaches you");
+        h.printArea("They create a controlled burn, stopping the fire before it reaches them\n");
     }
 
     @Override
     protected void Punishment() {
         h.printArea("The fire starts to close in");
-        ForestFireRunning r = new ForestFireRunning(t);
+        ffrt[t.identifier].Go();
     }
 
     @Override
     protected void setRequirement() {
         requirement = fire;
+    }
+
+    @Override
+    protected void firstStatement() {
+        h.printArea(t.getName() + " notices a forest fire in the distance, slowly approaching them");
     }
     
 }

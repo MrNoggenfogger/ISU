@@ -21,15 +21,15 @@ public class WaterSearchClimb extends Event{
 
     @Override
     protected void Reward() {
-        System.out.println("You climb a tree, and see a source of water, which you drink from");
+        h.printArea("They climb a tree, and see a source of water, which they drink from\n");
     }
 
     @Override
     protected void Punishment() {
         int num=(int)(Math.random()*2)+1;
-        if(num==2)System.out.println("You come across some water, which you drink from");
+        if(num==2)h.printArea("They come across some water, which you drink from\n");
         else {
-            System.out.println("You dont find any water, and it's starting to affect you");
+            h.printArea("They dont find any water, and it's starting to affect them\n");
             t.health-=25;
         }
     }
@@ -37,6 +37,11 @@ public class WaterSearchClimb extends Event{
     @Override
     protected void setRequirement() {
         requirement = climbing;
+    }
+
+    @Override
+    protected void firstStatement() {
+        
     }
     
 }

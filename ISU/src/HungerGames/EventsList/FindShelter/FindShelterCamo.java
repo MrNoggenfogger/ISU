@@ -15,25 +15,34 @@ import HungerGames.Tribute;
  */
 public class FindShelterCamo extends Event{
     int i;
-    public FindShelterCamo(Tribute t, int ir) {
+    FindShelterClimb[] fsct;
+    Sleep[] st;
+    public FindShelterCamo(Tribute t, int ir,FindShelterClimb[] fsc, Sleep[] s) {
         super(t);
         i=ir;
+        fsct = fsc;
+        st=s;
     }
 
     @Override
     protected void Reward() {
-        h.printArea("You manage to camouflage yourself during the night, hidden from anyone wandering about");
-        Sleep s = new Sleep(t);
+        h.printArea("They manage to camouflage themselves during the night, hidden from anyone wandering about");
+        st[t.identifier].Go();
     }
 
     @Override
     protected void Punishment() {
-    FindShelterClimb c = new FindShelterClimb(t,i);
+    fsct[t.identifier].Go();
     }
 
     @Override
     protected void setRequirement() {
         requirement = camouflage;
+    }
+
+    @Override
+    protected void firstStatement() {
+        
     }
 
     

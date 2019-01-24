@@ -21,20 +21,23 @@ public class Tribute {
     public int health=100;
     private boolean Alive=true;
     public static int amountAlive = 3;
-    public Tribute(String nm){
+    public int identifier;
+    public Tribute(String nm,int id){
         name=nm;
         for (int i = 0; i < 7; i++) {
             stats[i] = (int)(Math.random()*7)+1;
         }
-        
-    }
-    
-    public Tribute(String nm,int a, int ca, int cl, int r, int b, int f, int co){
-        
+        identifier = id;
     }
     
     public String getName(){
         return name;
+    }
+    
+    public void Reroll(){
+        for (int i = 0; i < 7; i++) {
+            stats[i] = (int)(Math.random()*7)+1;
+        }
     }
     
     public void setName(String s){

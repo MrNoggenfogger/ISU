@@ -19,19 +19,24 @@ public class Sleep extends Event{
 
     @Override
     protected void Reward() {
-        h.printArea("You enjoy a warm night's sleep, thanks to the small fire that you lit");
+        h.printArea(t.getName() + " enjoys a warm night's sleep, thanks to the small fire that they lit\n");
         t.health+=20;
     }
 
     @Override
     protected void Punishment() {
-        h.printArea("You manage to enjoy a cold, but deep sleep");
+        h.printArea(t.getName() + " manages to enjoy a cold, but deep sleep\n");
         t.health+=5;
     }
 
     @Override
     protected void setRequirement() {
         requirement = fire;
+    }
+
+    @Override
+    protected void firstStatement() {
+        
     }
     
     

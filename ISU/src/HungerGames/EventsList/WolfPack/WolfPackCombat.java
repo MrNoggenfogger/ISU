@@ -14,26 +14,34 @@ import HungerGames.Tribute;
  * @author chri8160
  */
 public class WolfPackCombat extends Event{
-
-    public WolfPackCombat(Tribute t) {
+    
+    FoodCook[] ft;
+    
+    public WolfPackCombat(Tribute t,FoodCook[] f) {
         super(t);
+        ft=f;
     }
 
     @Override
     protected void Reward() {
-        h.printArea("You knock out the first, causing the rest of the wolves to scatter. You gain a small source of food");
-        FoodCook f = new FoodCook(t);
+        h.printArea("They knock out the first, causing the rest of the wolves to scatter. They gain a small source of food");
+        ft[t.identifier].Go();
     }
 
     @Override
     protected void Punishment() {
-        h.printArea("You run away, sustaining a major injury in the process");
+        h.printArea("They run away, sustaining a major injury in the process\n");
         t.health-=30;
     }
 
     @Override
     protected void setRequirement() {
         requirement = combat;
+    }
+
+    @Override
+    protected void firstStatement() {
+        
     }
     
 }

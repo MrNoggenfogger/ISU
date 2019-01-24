@@ -20,19 +20,24 @@ public class FoodCook extends Event{
     
     @Override
     protected void Reward() {
-        h.printArea("You cook your meal over a flame");
+        h.printArea(t.getName() + " cooks their meal over a flame\n");
         t.hunger-=30;
     }
 
     @Override
     protected void Punishment() {
-        h.printArea("You eat the food raw");
+        h.printArea(t.getName() + " eats the food raw\n");
         t.hunger-=15;
     }
 
     @Override
     protected void setRequirement() {
         requirement = fire;
+    }
+
+    @Override
+    protected void firstStatement() {
+        
     }
     
     
